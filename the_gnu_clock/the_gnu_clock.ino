@@ -8,15 +8,18 @@ Made by paolinux
 01/06/2014
 
 The Cuicuit:
-  LCD RS pin to Digital 12
-  LCD Enable pin to Digital 11
-  LCD DB4 pin to Digital 5
-  LCD DB5 pin to Digital 4
-  LCD DB6 pin to Digital 3
-  LCD DB7 pin to Digital 2
-  LCD V0 tied to a pot to control brightness
-  LCD Vss and R/W tied to ground
-  LCD Vcc to +5V
+  LCD (pin 01) Vss to ground
+  LCD (pin 02) Vcc to +5V
+  LCD (pin 03) Vee controlled by PWM pin 10
+  LCD (pin 04) RS pin to Digital 12
+  LCD (pin 05) R/W tied to ground
+  LCD (pin 06) Enable pin to Digital 11
+  LCD (pin 11) DB4 pin to Digital 5
+  LCD (pin 12) DB5 pin to Digital 4
+  LCD (pin 13) DB6 pin to Digital 3
+  LCD (pin 14) DB7 pin to Digital 2
+  LCD (pin 15) LED+ to +5V
+  LCD (pin 16) LED- controlled by PWM pin 9
 */
 
 // include the library
