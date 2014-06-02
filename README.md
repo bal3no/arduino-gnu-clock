@@ -19,5 +19,5 @@ LCD (pin 16) LED- controlled by PWM pin 9<br>
 
 Check on http://andybrown.me.uk/wk/2010/11/28/lcd-backlight-and-contrast-manager/ in case you want to control LCD's backlight and contrast with Arduino's PWM signals.<br>
 
-Sending a signal to pin A1, you can force the display to go in sleep or normal state.<br>
+Sending a signal to pin A1, you can switch display's state to sleep (turned off) or normal (turned on).<br>
 Sending a signal to pin A2, you can change the display's auto-sleep timeout.
