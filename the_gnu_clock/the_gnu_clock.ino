@@ -32,8 +32,9 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
 
 unsigned long timer, timerDisplay;
 int currHour, currMinute, currSecond, currDayOfWeek, x;
+int t = 0;
 boolean a1Toggle = true;
-int timeoutDisplay = 30; //secondi dopo i quali disattiva il display
+int timeoutDisplay[5] = { 30, 60, 120, 300, -1 }; //secondi dopo i quali disattiva il display
 int displayMonitor = 13;
 int contrastPwm = 10, defaultContrastPwm = 75;
 int backlightPwm = 9, defaultBacklightPwm = 150;
@@ -431,7 +432,7 @@ void loop()
   
   // disable display on specific timeout
   // you can enable it again by sending a signal to A1
-  if (millis() - timerDisplay > (timeoutDisplay * 1000)) {
+  if (millis() - timerDisplay > (timeoutDisplay[t] * 1000)) {
     if (a1Toggle == true) {
       a1Toggle = false;
       for (int i = defaultBacklightPwm; i >= 0; i--){
@@ -469,7 +470,22 @@ void loop()
   
   if (valA2 == 1) {
     // input signal on A2
+    if (t < 4) {
+      t++;
+    } else {
+      t = 0;
+    }
+    timerDisplay = millis();
+    lcd.setCursor(11, 3);
+    lcd.print("t ");
+    if (timeoutDisplay[t] < 0) {
+      lcd.print("off");
+    } else {
+      lcd.print(timeoutDisplay[t]);
+    }
     delay(500);
+    lcd.setCursor(11, 3);
+    lcd.print("     ");
   }
   
   if (valA3 == 1) {
